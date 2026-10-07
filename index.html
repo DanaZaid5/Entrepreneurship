@@ -77,8 +77,8 @@ header.compact .logo{height:40px}
 }
 
 /* PHONE */
-.phone{background:var(--navy-3);border:1px solid rgba(239,231,218,.25);border-radius:30px;padding:7px;aspect-ratio:9/18.5;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);width:100%}
-.screen{background:var(--ivory);color:var(--navy);border-radius:24px;height:100%;padding:16px 12px 12px;overflow:hidden;position:relative;font-size:11px;line-height:1.5;display:flex;flex-direction:column;gap:9px}
+.phone{background:var(--navy-3);border:1px solid rgba(239,231,218,.25);border-radius:30px;padding:7px;aspect-ratio:9/18.5;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);width:100%;position:relative;overflow:hidden}
+.screen{background:var(--ivory);color:var(--navy);border-radius:24px;position:absolute;inset:7px;padding:16px 12px 12px;overflow:hidden;font-size:11px;line-height:1.5;display:flex;flex-direction:column;gap:9px}
 .screen .bar{display:flex;justify-content:space-between;align-items:center;font-family:var(--serif);font-size:15px;font-weight:700}
 .screen .bar i{width:18px;height:2px;background:var(--navy);box-shadow:0 5px 0 var(--navy);display:block}
 .screen .t{font-family:var(--serif);font-size:16px;font-weight:700;line-height:1.3}
@@ -88,14 +88,16 @@ header.compact .logo{height:40px}
 .chip.on{background:var(--navy);color:var(--ivory);border-color:var(--navy)}
 .thumbs{display:grid;grid-template-columns:1fr 1fr;gap:7px}
 .th{background:var(--ivory-2);aspect-ratio:3/4;display:flex;align-items:flex-end;justify-content:center;padding:6px 8px 0;position:relative}
-.th svg{height:100%;width:auto}
+.th{overflow:hidden}
+.th svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:calc(100% - 6px);aspect-ratio:120/310;width:auto}
 .th b{position:absolute;inset:auto 5px 4px auto;font-size:9px;font-weight:500;background:var(--ivory);padding:0 6px}
 .row3{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}
 .row3 .th{aspect-ratio:3/5}
 .sbtn{background:var(--navy);color:var(--ivory);text-align:center;padding:8px;font-size:11px;margin-top:auto}
 .sbtn.o{background:transparent;color:var(--navy);border:1px solid var(--navy);margin-top:0}
 .pin{background:var(--ivory-2);aspect-ratio:1;display:grid;place-items:end center;overflow:hidden}
-.pin svg{height:92%;width:auto}
+.pin{position:relative}
+.pin svg{position:absolute;bottom:0;left:50%;transform:translateX(-50%);height:92%;aspect-ratio:120/310;width:auto}
 .pin.tall{grid-row:span 2;aspect-ratio:auto}
 .dots{display:flex;gap:4px;justify-content:center}.dots i{width:5px;height:5px;border-radius:50%;background:var(--navy);opacity:.25}.dots i:first-child{opacity:1}
 
@@ -208,8 +210,8 @@ header.compact .logo{height:40px}
 .player:hover .play{transform:scale(1.06);background:rgba(239,231,218,.08)}
 .play svg{width:26px;height:26px;fill:var(--ivory);transform:scaleX(-1)}
 .player p{opacity:.75;font-size:.95rem}
-.player.embed::before{display:none}
 .player iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.player.has-video::before{display:none}
 
 /* FAQ */
 .faq-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(30px,6vw,100px)}
@@ -310,7 +312,7 @@ header.hide{transform:translateY(-100%)}
 /* app: draggable, 3D tilt */
 .scroller{cursor:grab;user-select:none;-webkit-user-select:none}
 .scroller.drag{cursor:grabbing;scroll-snap-type:none}
-.scroller .phone{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s;will-change:transform}
+.scroller .phone{transition:transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .5s}
 .scroller figure:hover .phone{box-shadow:0 40px 70px -24px rgba(0,0,0,.65)}
 /* trust: bars fill to each percentage */
 .concerns li{position:relative}
@@ -587,8 +589,8 @@ header.hide{transform:translateY(-100%)}
 <section class="pad light2">
   <div class="wrap">
     <div class="video-head rv"><h2>شوفي كيف تشتغل The Abaya Edit</h2></div>
-    <div class="player embed rv" id="videoSlot">
-      <iframe src="https://www.youtube.com/embed/KLOMWMbrHa8?rel=0" title="فيديو تعريفي عن The Abaya Edit" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <div class="player has-video rv" id="videoSlot">
+      <iframe src="https://www.youtube-nocookie.com/embed/KLOMWMbrHa8?rel=0" title="الفيديو التعريفي لـ The Abaya Edit" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
   </div>
 </section>
